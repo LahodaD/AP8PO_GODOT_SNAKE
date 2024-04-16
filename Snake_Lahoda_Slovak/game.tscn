@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3awc863r3dfv"]
+
+[ext_resource type="Texture2D" uid="uid://bpihvcdrkdp48" path="res://Green-grass.jpg" id="1_78etu"]
+[ext_resource type="Script" path="res://Game.cs" id="2_jikuo"]
+[ext_resource type="PackedScene" uid="uid://bli8wqmcg5yb8" path="res://food.tscn" id="3_hciqu"]
+[ext_resource type="PackedScene" uid="uid://ctthiwmojpgq7" path="res://game_over_menu.tscn" id="4_vtbgy"]
+
+[node name="Game" type="Node"]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_78etu")
+centered = false
+script = ExtResource("2_jikuo")
+
+[node name="MoveTimer" type="Timer" parent="Background"]
+wait_time = 0.1
+
+[node name="Food" parent="Background" instance=ExtResource("3_hciqu")]
+
+[node name="GameOverMenu" parent="Background" instance=ExtResource("4_vtbgy")]
+
+[connection signal="timeout" from="Background/MoveTimer" to="Background" method="OnMoveTimerTimeout"]
+[connection signal="Restart" from="Background/GameOverMenu" to="Background" method="OnGameOverMenuRestart"]

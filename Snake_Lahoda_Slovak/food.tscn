@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bli8wqmcg5yb8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fylrm"]
+bg_color = Color(0.843137, 0.101961, 0.145098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="Food" type="Panel"]
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fylrm")
